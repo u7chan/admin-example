@@ -1,5 +1,12 @@
 # admin-example
 
+## Architectures
+
+- TypeScript
+- Next.js 15 (React 19 RC)
+- Tailwind CSS
+- shadcn UI x Radix UI
+
 ## Getting Started
 
 First, run the development server:
