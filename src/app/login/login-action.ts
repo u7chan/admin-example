@@ -1,12 +1,25 @@
 "use server";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function loginAction(_prevState: any, formData: FormData) {
-  const email = formData.get("email");
-  const password = formData.get("password");
+export interface FormState {
+  email: string;
+  password: string;
+  errorMessage: string;
+}
+
+export async function loginAction(
+  _prevState: FormState,
+  formData: FormData
+): Promise<FormState> {
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+  let errorMessage = "";
+  await new Promise<void>((resolve) => setTimeout(() => resolve(), 1000));
   if (email !== "example@example.com" || password !== "test") {
-    return {
-      message: "Unauthorized",
-    };
+    errorMessage = "認証に失敗しました。";
   }
+  return {
+    email,
+    password,
+    errorMessage,
+  };
 }

@@ -6,18 +6,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-import { loginAction } from "@/app/login/login-action";
+import { FormState, loginAction } from "@/app/login/login-action";
 
-const initialState = {
-  message: "",
+const initialState: FormState = {
+  email: "",
+  password: "",
+  errorMessage: "",
 };
 
 export function LoginForm() {
-  const [state, formAction] = useActionState(loginAction, initialState);
+  const [state, formAction, loading] = useActionState(
+    loginAction,
+    initialState
+  );
   return (
     <>
-      {state?.message && (
-        <Label className="text-red-500">{state.message}</Label>
+      {state?.errorMessage && (
+        <Label className="text-red-500">{state.errorMessage}</Label>
       )}
       <form className="space-y-4" action={formAction}>
         <div>
@@ -28,6 +33,8 @@ export function LoginForm() {
             name="email"
             required
             placeholder="example@example.com"
+            disabled={loading}
+            defaultValue={state.email}
           />
         </div>
         <div>
@@ -38,9 +45,11 @@ export function LoginForm() {
             name="password"
             required
             placeholder="********"
+            disabled={loading}
+            defaultValue={state.password}
           />
         </div>
-        <Button type="submit" className="w-full">
+        <Button type="submit" disabled={loading} className="w-full">
           ログイン
         </Button>
       </form>
