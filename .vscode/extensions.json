@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint",
+    "mskelton.npm-outdated",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "stivo.tailwind-fold"
+  ]
+}
