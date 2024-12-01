@@ -1,9 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { LoginForm } from "./login-form";
 
 export default async function Page() {
   const cookieStore = await cookies();
@@ -18,29 +16,7 @@ export default async function Page() {
           <h2 className="text-center text-2xl font-bold">ログイン</h2>
         </CardHeader>
         <CardContent>
-          <form className="space-y-4">
-            <div>
-              <Label htmlFor="email">メールアドレス</Label>
-              <Input
-                type="email"
-                id="email"
-                required
-                placeholder="example@example.com"
-              />
-            </div>
-            <div>
-              <Label htmlFor="password">パスワード</Label>
-              <Input
-                type="password"
-                id="password"
-                required
-                placeholder="********"
-              />
-            </div>
-            <Button type="submit" className="w-full">
-              ログイン
-            </Button>
-          </form>
+          <LoginForm />
         </CardContent>
       </Card>
     </div>
