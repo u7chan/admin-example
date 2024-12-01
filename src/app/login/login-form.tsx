@@ -16,7 +16,9 @@ export function LoginForm() {
   const [state, formAction] = useActionState(loginAction, initialState);
   return (
     <>
-      {state?.message && <Label>{state.message}</Label>}
+      {state?.message && (
+        <Label className="text-red-500">{state.message}</Label>
+      )}
       <form className="space-y-4" action={formAction}>
         <div>
           <Label htmlFor="email">メールアドレス</Label>
