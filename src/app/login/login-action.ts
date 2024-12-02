@@ -9,7 +9,7 @@ export interface FormState {
 
 export async function loginAction(
   _prevState: FormState,
-  formData: FormData
+  formData: FormData,
 ): Promise<FormState> {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;

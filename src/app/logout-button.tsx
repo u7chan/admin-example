@@ -13,7 +13,7 @@ export function LogoutButton() {
   const router = useRouter();
   const [state, formAction, loading] = useActionState(
     logoutAction,
-    initialState
+    initialState,
   );
   useEffect(() => {
     if (state.reload) {

@@ -7,7 +7,7 @@ export interface FormState {
 
 export async function logoutAction(
   _prevState: FormState,
-  _formData: FormData
+  _formData: FormData,
 ): Promise<FormState> {
   const cookieStore = await cookies();
   cookieStore.set({

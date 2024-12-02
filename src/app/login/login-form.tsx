@@ -16,7 +16,7 @@ const initialState: FormState = {
 export function LoginForm() {
   const [state, formAction, loading] = useActionState(
     loginAction,
-    initialState
+    initialState,
   );
   return (
     <>
