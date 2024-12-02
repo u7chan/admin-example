@@ -1,14 +1,7 @@
 "use server";
 import { cookies } from "next/headers";
 
-export interface FormState {
-  reload: boolean;
-}
-
-export async function logoutAction(
-  _prevState: FormState,
-  _formData: FormData,
-): Promise<FormState> {
+export async function logoutAction(): Promise<void> {
   const cookieStore = await cookies();
   cookieStore.set({
     name: "session",
@@ -16,7 +9,4 @@ export async function logoutAction(
     path: process.env.BASE_PATH,
     expires: 0,
   });
-  return {
-    reload: true,
-  };
 }
