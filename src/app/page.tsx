@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -11,7 +11,7 @@ export default async function Home() {
   const cookieStore = await cookies();
   const session = cookieStore.get("session");
   if (!session) {
-    redirect("/login");
+    redirect("/login", RedirectType.replace);
   }
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">

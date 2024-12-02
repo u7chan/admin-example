@@ -1,13 +1,13 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 import { LoginForm } from "./login-form";
 
 export default async function Page() {
   const cookieStore = await cookies();
   const session = cookieStore.get("session");
   if (session) {
-    redirect("/");
+    redirect("/", RedirectType.replace);
   }
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
