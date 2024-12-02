@@ -1,4 +1,5 @@
 "use server";
+import { cookies } from "next/headers";
 
 export interface FormState {
   email: string;
@@ -17,6 +18,16 @@ export async function loginAction(
   if (email !== "example@example.com" || password !== "test") {
     errorMessage = "認証に失敗しました。";
   }
+  const cookieStore = await cookies();
+  cookieStore.set({
+    name: "session",
+    value: "dummy",
+    path: process.env.BASE_PATH,
+    sameSite: "strict",
+    secure: false,
+    httpOnly: true,
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+  });
   return {
     email,
     password,
