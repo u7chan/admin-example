@@ -1,7 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { cookies } from "next/headers";
-import Image from "next/image";
 import { redirect } from "next/navigation";
+import Image from "next/image";
+
+import { LogoutButton } from "./logout-button";
 
 const BASE_PATH = process.env.BASE_PATH;
 
@@ -21,7 +22,7 @@ export default async function Home() {
         height={16}
       />
       NEXT
-      <Button>Click me</Button>
+      <LogoutButton />
     </div>
   );
 }
