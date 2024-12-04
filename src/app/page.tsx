@@ -4,8 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
-
-const BASE_PATH = process.env.BASE_PATH;
+import { config } from "@/lib/config";
 
 export default async function Home() {
   const cookieStore = await cookies();
@@ -17,7 +16,7 @@ export default async function Home() {
     <div className="font-[family-name:var(--font-geist-sans)]">
       <Image
         aria-hidden
-        src={`${BASE_PATH}/globe.svg`}
+        src={`${config.BASE_PATH}/globe.svg`}
         alt="Globe icon"
         width={16}
         height={16}

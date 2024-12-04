@@ -1,4 +1,5 @@
 "use server";
+import { config } from "@/lib/config";
 import { cookies } from "next/headers";
 
 export interface FormState {
@@ -23,11 +24,11 @@ export async function loginAction(
     cookieStore.set({
       name: "session",
       value: "dummy",
-      path: process.env.BASE_PATH,
+      path: config.BASE_PATH,
       sameSite: "strict",
-      secure: false,
+      secure: config.USE_HTTPS,
       httpOnly: true,
-      expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+      expires: new Date(Date.now() + 1000 * 60 * config.SESSION_EXPIRE_MINUTES),
     });
   } catch (e: unknown) {
     errorMessage = e instanceof Error ? e.message : "";

@@ -1,4 +1,5 @@
 "use server";
+import { config } from "@/lib/config";
 import { cookies } from "next/headers";
 
 export async function logoutAction(): Promise<void> {
@@ -6,7 +7,7 @@ export async function logoutAction(): Promise<void> {
   cookieStore.set({
     name: "session",
     value: "",
-    path: process.env.BASE_PATH,
+    path: config.BASE_PATH,
     expires: 0,
   });
 }
