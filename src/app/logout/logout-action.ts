@@ -1,13 +1,13 @@
-"use server";
-import { config } from "@/lib/config";
-import { cookies } from "next/headers";
+'use server'
+import { config } from '@/lib/config'
+import { cookies } from 'next/headers'
 
 export async function logoutAction(): Promise<void> {
-  const cookieStore = await cookies();
+  const cookieStore = await cookies()
   cookieStore.set({
-    name: "session",
-    value: "",
+    name: 'session',
+    value: '',
     path: config.BASE_PATH,
     expires: 0,
-  });
+  })
 }

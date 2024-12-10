@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react'
 
-import { TitleVersion } from "@/components/title-version";
+import { TitleVersion } from '@/components/title-version'
 import {
   Sidebar,
   SidebarContent,
@@ -12,48 +12,48 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar'
 
 // This is sample data.
 const data = {
   navMain: [
     {
-      title: "Main Menu",
-      url: "#",
+      title: 'Main Menu',
+      url: '#',
       items: [
         {
-          title: "My GPT",
-          url: "#",
+          title: 'My GPT',
+          url: '#',
         },
         {
-          title: "Users",
-          url: "#",
+          title: 'Users',
+          url: '#',
         },
       ],
     },
     {
-      title: "Settings",
-      url: "#",
+      title: 'Settings',
+      url: '#',
       items: [
         {
-          title: "Your Profile",
-          url: "#",
+          title: 'Your Profile',
+          url: '#',
         },
         {
-          title: "Logout",
-          url: "#",
+          title: 'Logout',
+          url: '#',
           isActive: true,
         },
       ],
     },
   ],
-};
+}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <TitleVersion title="Admin" version="v1.0.0" />
+        <TitleVersion title='Admin' version='v1.0.0' />
       </SidebarHeader>
       <SidebarContent>
         {/* We create a SidebarGroup for each parent. */}
@@ -76,5 +76,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
-  );
+  )
 }
